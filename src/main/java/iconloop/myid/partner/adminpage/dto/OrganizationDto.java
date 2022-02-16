@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class OrganizationDto {
 
-    private Long orgId;
+    private Integer orgId;
 
     private String orgName;
     private String orgNameEng;
@@ -36,7 +36,7 @@ public class OrganizationDto {
     }
 
     @Builder
-    public OrganizationDto(Long orgId, String orgName, String orgNameEng, char orgStatus, char isIssuer, char isVerifier, LocalDateTime created, LocalDateTime updated) {
+    public OrganizationDto(Integer orgId, String orgName, String orgNameEng, char orgStatus, char isIssuer, char isVerifier, LocalDateTime created, LocalDateTime updated) {
         this.orgId = orgId;
         this.orgName = orgName;
         this.orgNameEng = orgNameEng;

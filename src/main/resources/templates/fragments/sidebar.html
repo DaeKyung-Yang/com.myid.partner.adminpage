@@ -1,0 +1,19 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="mySideBar">
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li>
+                <a th:href="@{/organizations}">Organization</a>
+            </li>
+            <li>
+                <a th:href="@{/org-dids}">OrgDid</a>
+            </li>
+            <li>
+                <a th:href="@{/notices}">Notice</a>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

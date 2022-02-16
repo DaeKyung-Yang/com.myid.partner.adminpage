@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>notice List</title>
+    <link rel='stylesheet' href='/webjars/bootstrap/4.5.0/css/bootstrap.min.css'>
+</head>
+<body>
+<header th:insert="fragments/header.html"></header>
+<table th:insert="fragments/sidebar.html"></table>
+<div class="container">
+    <table class="table">
+        <thead class="thead-light">
+        <tr class="text-center">
+            <th scope="col">id</th>
+            <th scope="col">title</th>
+            <th scope="col">created</th>
+            <th scope="col">수정</th>
+            <th scope="col">삭제</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="text-center" th:each="post : ${postList}">
+            <th scope="row">
+                <span th:text="${post.id}"></span>
+            </th>
+            <td>
+                <a th:href="@{'/notices/' + ${post.id}}">
+                    <span th:text="${post.title}"></span>
+                </a>
+            </td>
+            <td>
+                <span th:text="${#temporals.format(post.created, 'yyyy-MM-dd HH:mm')}"></span>
+            </td>
+            <td>
+                <a th:href="@{/notices/post/edit/{id}(id=${post.id})}" role="button">수정</a>
+            </td>
+            <td>
+                <a th:href="@{/notices/post/delete(id=${post.id})}" role="button"
+                   onclick="if(!(confirm('삭제하시겠습니까?'))) return false">삭제
+                </a>
+            </td>
+        </tr>
+    </table>
+    <div class="row">
+        <div class="col-auto mr-auto"></div>
+        <div class="col-auto">
+            <a class="btn btn-primary" th:href="@{/notices/post}" role="button">추가</a>
+        </div>
+    </div>
+    <nav>
+        <ul class="pagination"
+            th:with="start=${T(Math).floor(postList.number/10)*10 + 1},
+                    last=(${start + 9 < postList.totalPages ? start + 9 : postList.totalPages})">
+            <li th:each="page: ${#numbers.sequence(start, last)}" th:class="${page == postList.number + 1} ? 'active'">
+                <a th:text="[ + ${page} + ]" th:href="@{/notices(page=${page})}"></a>
+            </li>
+        </ul>
+    </nav>
+</div>
+<script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>

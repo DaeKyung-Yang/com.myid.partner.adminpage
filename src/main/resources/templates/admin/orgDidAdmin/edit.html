@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>수정</title>
+    <link rel='stylesheet' href='/webjars/bootstrap/4.5.0/css/bootstrap.min.css'>
+</head>
+<body>
+<header th:insert="fragments/header.html"></header>
+<div th:insert="fragments/sidebar.html"></div>
+<div class="container">
+    <form th:action="@{'/org-dids/post/edit/' + ${post.did}}" method="post">
+        <input type="hidden" name="_method" value="patch"/>
+        <input type="hidden" name="did" th:value="${post.did}"/>
+        <div class="form-group row">
+            <label for="inputOrgId" class="col-sm-2 col-form-label"><strong>orgId</strong></label>
+            <div class="col-sm-10">
+                <input type="text" name="orgId" class="form-control" id="inputOrgId" th:value="${post.organization.orgId}">
+            </div>
+        </div>
+<!--        <div class="form-group row">-->
+<!--            <label for="inputDid" class="col-sm-2 col-form-label"><strong>did</strong></label>-->
+<!--            <div class="col-sm-10">-->
+<!--                <input type="text" name="did" class="form-control" id="inputDid" th:value="${post.did}">-->
+<!--            </div>-->
+<!--        </div>-->
+        <div class="form-group row">
+            <label for="inputNid" class="col-sm-2 col-form-label"><strong>nid</strong></label>
+            <div class="col-sm-10">
+                <input type="text" name="nid" class="form-control" id="inputNid" th:value="${post.nid}">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputDidPrivateKey" class="col-sm-2 col-form-label"><strong>DidPrivateKey</strong></label>
+            <div class="col-sm-10">
+                <input type="text" name="DidPrivateKey" class="form-control" id="inputDidPrivateKey" th:value="${post.didPrivateKey}">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputdidStatus" class="col-sm-2 col-form-label"><strong>didStatus</strong></label>
+            <div class="col-sm-10">
+                <input type="text" name="didStatus" class="form-control" id="inputDidStatus"th:value="${post.didStatus}">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputDescription" class="col-sm-2 col-form-label"><strong>description</strong></label>
+            <div class="col-sm-10">
+                <input type="text" name="description" class="form-control" id="inputDescription" th:value="${post.description}">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputDidName" class="col-sm-2 col-form-label"><strong>didName</strong></label>
+            <div class="col-sm-10">
+                <input type="text" name="didName" class="form-control" id="inputDidName" th:value="${post.didName}">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-auto mr-auto"></div>
+            <div class="col-auto">
+                <input class="btn btn-primary" type="submit" role="button" value="수정">
+            </div>
+        </div>
+    </form>
+</div>
+<script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>

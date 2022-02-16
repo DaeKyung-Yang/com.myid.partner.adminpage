@@ -2,12 +2,14 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>t_organization List</title>
+    <title>organization List</title>
     <link rel='stylesheet' href='/webjars/bootstrap/4.5.0/css/bootstrap.min.css'>
 </head>
 <body>
-<header th:insert="common/header.html"></header>
+<header th:insert="fragments/header.html"></header>
+<aside th:insert="fragments/sidebar.html"></aside>
 <div class="container">
+
     <table class="table">
         <thead class="thead-light">
         <tr class="text-center">
@@ -29,9 +31,7 @@
                 <span th:text="${post.orgId}"></span>
             </th>
             <td>
-<!--                <a th:href="@{'/post/' + ${post.org_id}}">-->
                     <span th:text="${post.orgName}"></span>
-<!--                </a>-->
             </td>
             <td>
                 <span th:text="${post.orgNameEng}"></span>
@@ -52,10 +52,10 @@
                 <span th:text="${#temporals.format(post.updated, 'yyyy-MM-dd HH:mm')}"></span>
             </td>
             <td>
-                <a th:href="@{/post/edit/{orgId}(org_id=${post.orgId})}" role="button">수정</a>
+                <a th:href="@{/organizations/post/edit/{orgId}(orgId=${post.orgId})}" role="button">수정</a>
             </td>
             <td>
-                <a th:href="@{/post/delete(orgId=${post.orgId})}" role="button"
+                <a th:href="@{/organizations/post/delete(orgId=${post.orgId})}" role="button"
                    onclick="if(!(confirm('삭제하시겠습니까?'))) return false">삭제
                 </a>
             </td>
@@ -65,7 +65,7 @@
     <div class="row">
         <div class="col-auto mr-auto"></div>
         <div class="col-auto">
-            <a class="btn btn-primary" th:href="@{/post}" role="button">추가</a>
+            <a class="btn btn-primary" th:href="@{/organizations/post}" role="button">추가</a>
         </div>
     </div>
 </div>

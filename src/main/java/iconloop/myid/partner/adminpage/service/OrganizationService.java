@@ -11,6 +11,7 @@ import java.util.List;
 
 @Service
 public class OrganizationService {
+
     private OrganizationRepository organizationRepository;
 
     public OrganizationService(OrganizationRepository organizationRepository){
@@ -18,7 +19,7 @@ public class OrganizationService {
     }
 
     @Transactional
-    public Long savePost(OrganizationDto organizationDto){
+    public Integer savePost(OrganizationDto organizationDto){
         return organizationRepository.save(organizationDto.toEntity()).getOrgId();
     }
 
@@ -44,7 +45,7 @@ public class OrganizationService {
     }
 
     @Transactional
-    public OrganizationDto getPost(Long orgId){
+    public OrganizationDto getPost(Integer orgId){
         Organization organization = organizationRepository.findById(orgId).get();
 
         OrganizationDto organizationDto = OrganizationDto.builder()
@@ -61,7 +62,7 @@ public class OrganizationService {
     }
 
     @Transactional
-    public void deletePost(Long orgId){
+    public void deletePost(Integer orgId){
         organizationRepository.deleteById(orgId);
     }
 }

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>orgDid List</title>
+    <link rel='stylesheet' href='/webjars/bootstrap/4.5.0/css/bootstrap.min.css'>
+</head>
+<body>
+<header th:insert="fragments/header.html"></header>
+<div th:include="fragments/sidebar"></div>
+<div class="container">
+    <table class="table">
+        <thead class="thead-light">
+        <tr class="text-center">
+            <th scope="col">orgId</th>
+            <th scope="col">nid</th>
+            <th scope="col">did</th>
+            <th scope="col">didPrivateKey</th>
+            <th scope="col">didStatus</th>
+            <th scope="col">created</th>
+            <th scope="col">description</th>
+            <th scope="col">didName</th>
+            <th scope="col">수정</th>
+            <th scope="col">삭제</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="text-center" th:each="post : ${postList}">
+            <th scope="row">
+                <span th:text="${post.organization.orgId}"></span>
+            </th>
+            <td>
+                <span th:text="${post.nid}"></span>
+            </td>
+            <td>
+                <span th:text="${post.did}"></span>
+            </td>
+            <td>
+                <span th:text="${post.didPrivateKey}"></span>
+            </td>
+            <td>
+                <span th:text="${post.didStatus}"></span>
+            </td>
+            <td>
+                <span th:text="${#temporals.format(post.created, 'yyyy-MM-dd HH:mm')}"></span>
+            </td>
+            <td>
+                <span th:text="${post.description}"></span>
+            </td>
+            <td>
+                <span th:text="${post.didName}"></span>
+            </td>
+            <td>
+                <a th:href="@{/org-dids/post/edit/{did}(did=${post.did})}" role="button">수정</a>
+            </td>
+            <td>
+                <a th:href="@{/org-dids/post/delete(did=${post.did})}" role="button"
+                   onclick="if(!(confirm('삭제하시겠습니까?'))) return false">삭제
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="row">
+        <div class="col-auto mr-auto"></div>
+        <div class="col-auto">
+            <a class="btn btn-primary" th:href="@{/org-dids/post}" role="button">추가</a>
+        </div>
+    </div>
+</div>
+<script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>

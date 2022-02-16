@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
+@RequestMapping("/organizations")
 public class OrganizationController {
     private OrganizationService organizationService;
 
@@ -16,40 +17,40 @@ public class OrganizationController {
         this.organizationService = organizationService;
     }
 
-    @GetMapping("/")
+    @GetMapping
     public String list(Model model) {
         List<OrganizationDto> organizationDtoList = organizationService.getOrganizationList();
         model.addAttribute("postList", organizationDtoList);
-        return "admin/list.html";
+        return "admin/organizationAdmin/list.html";
     }
 
     @GetMapping("/post")
     public String post() {
-        return "admin/post.html";
+        return "admin/organizationAdmin/post.html";
     }
 
     @PostMapping("/post")
     public String write(OrganizationDto organizationDto){
         organizationService.savePost(organizationDto);
-        return "redirect:/";
+        return "redirect:/organizations";
     }
 
-    @GetMapping("/post/edit/{org_id}")
-    public String edit(@PathVariable("org_id") Long org_id, Model model){
-        OrganizationDto organizationDto = organizationService.getPost(org_id);
+    @GetMapping("/post/edit/{orgId}")
+    public String edit(@PathVariable("orgId") Integer orgId, Model model){
+        OrganizationDto organizationDto = organizationService.getPost(orgId);
         model.addAttribute("post", organizationDto);
-        return "admin/edit.html";
+        return "admin/organizationAdmin/edit.html";
     }
 
-    @PatchMapping("/post/edit/{org_id}")
+    @PatchMapping("/post/edit/{orgId}")
     public String update(OrganizationDto organizationDto){
         organizationService.savePost(organizationDto);
-        return "redirect:/";
+        return "redirect:/organizations";
     }
 
     @GetMapping("/post/delete")
-    public String delete(@RequestParam("org_id") Long org_id){
-        organizationService.deletePost(org_id);
-        return "redirect:/";
+    public String delete(@RequestParam("orgId") Integer orgId){
+        organizationService.deletePost(orgId);
+        return "redirect:/organizations";
     }
 }
