@@ -13,11 +13,11 @@
         <thead class="thead-light">
         <tr class="text-center">
             <th scope="col">orgId</th>
+            <th scope="col">기관명</th>
             <th scope="col">nid</th>
             <th scope="col">did</th>
-            <th scope="col">didPrivateKey</th>
             <th scope="col">didStatus</th>
-            <th scope="col">created</th>
+            <th scope="col">생성날짜</th>
             <th scope="col">description</th>
             <th scope="col">didName</th>
             <th scope="col">수정</th>
@@ -29,14 +29,14 @@
             <th scope="row">
                 <span th:text="${post.organization.orgId}"></span>
             </th>
+            <th scope="row">
+                <span th:text="${post.organization.orgName}"></span>
+            </th>
             <td>
                 <span th:text="${post.nid}"></span>
             </td>
             <td>
                 <span th:text="${post.did}"></span>
-            </td>
-            <td>
-                <span th:text="${post.didPrivateKey}"></span>
             </td>
             <td>
                 <span th:text="${post.didStatus}"></span>

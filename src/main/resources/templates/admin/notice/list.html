@@ -7,14 +7,14 @@
 </head>
 <body>
 <header th:insert="fragments/header.html"></header>
-<table th:insert="fragments/sidebar.html"></table>
+<th:block th:insert="fragments/sidebar.html"></th:block>
 <div class="container">
     <table class="table">
         <thead class="thead-light">
         <tr class="text-center">
             <th scope="col">id</th>
-            <th scope="col">title</th>
-            <th scope="col">created</th>
+            <th scope="col">제목</th>
+            <th scope="col">생성날짜</th>
             <th scope="col">수정</th>
             <th scope="col">삭제</th>
         </tr>
@@ -48,7 +48,7 @@
             <a class="btn btn-primary" th:href="@{/notices/post}" role="button">추가</a>
         </div>
     </div>
-    <nav>
+    <nav style="text-align: center;">
         <ul class="pagination"
             th:with="start=${T(Math).floor(postList.number/10)*10 + 1},
                     last=(${start + 9 < postList.totalPages ? start + 9 : postList.totalPages})">

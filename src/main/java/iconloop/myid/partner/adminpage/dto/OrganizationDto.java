@@ -35,15 +35,15 @@ public class OrganizationDto {
         return build;
     }
 
-    @Builder
-    public OrganizationDto(Integer orgId, String orgName, String orgNameEng, char orgStatus, char isIssuer, char isVerifier, LocalDateTime created, LocalDateTime updated) {
-        this.orgId = orgId;
-        this.orgName = orgName;
-        this.orgNameEng = orgNameEng;
-        this.orgStatus = orgStatus;
-        this.isIssuer = isIssuer;
-        this.isVerifier = isVerifier;
-        this.created = created;
-        this.updated = updated;
+    //생성자에 organization을 받아서 생성
+    public OrganizationDto(Organization organization){
+        this.orgId = organization.getOrgId();
+        this.orgName = organization.getOrgName();
+        this.orgNameEng = organization.getOrgNameEng();
+        this.orgStatus = organization.getOrgStatus();
+        this.isIssuer = organization.getIsIssuer();
+        this.isVerifier = organization.getIsVerifier();
+        this.created = organization.getCreated();
+        this.updated = organization.getUpdated();
     }
 }

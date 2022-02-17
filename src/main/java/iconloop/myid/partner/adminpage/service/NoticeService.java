@@ -30,6 +30,7 @@ public class NoticeService {
         pageable = PageRequest.of(page, 10, Sort.by(Sort.Direction.DESC,"id"));
         return noticeRepository.findAll(pageable);
     }
+
     @Transactional
     public NoticeDto getNoticeById(Integer id) {
         Notice notice = noticeRepository.findById(id).get();

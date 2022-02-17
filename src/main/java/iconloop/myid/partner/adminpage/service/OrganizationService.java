@@ -29,16 +29,7 @@ public class OrganizationService {
         List<OrganizationDto> organizationDtoList = new ArrayList<>();
 
         for(Organization organization : organizationsList){
-            OrganizationDto organizationDto = OrganizationDto.builder()
-                    .orgId(organization.getOrgId())
-                    .orgName(organization.getOrgName())
-                    .orgNameEng(organization.getOrgNameEng())
-                    .orgStatus(organization.getOrgStatus())
-                    .isIssuer(organization.getIsIssuer())
-                    .isVerifier(organization.getIsVerifier())
-                    .created(organization.getCreated())
-                    .updated(organization.getUpdated())
-                    .build();
+            OrganizationDto organizationDto = new OrganizationDto(organization);
             organizationDtoList.add(organizationDto);
         }
         return organizationDtoList;
@@ -47,18 +38,8 @@ public class OrganizationService {
     @Transactional
     public OrganizationDto getPost(Integer orgId){
         Organization organization = organizationRepository.findById(orgId).get();
-
-        OrganizationDto organizationDto = OrganizationDto.builder()
-                .orgId(organization.getOrgId())
-                .orgName(organization.getOrgName())
-                .orgNameEng(organization.getOrgNameEng())
-                .orgStatus(organization.getOrgStatus())
-                .isIssuer(organization.getIsIssuer())
-                .isVerifier(organization.getIsVerifier())
-                .created(organization.getCreated())
-                .updated(organization.getUpdated())
-                .build();
-        return organizationDto;
+//        OrganizationDto organizationDto  = new OrganizationDto(organization);
+        return new OrganizationDto(organization);
     }
 
     @Transactional
