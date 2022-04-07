@@ -14,30 +14,27 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
-public class User {
+public class Member {
 
-    @Id @GeneratedValue @NotNull
-    @Unsigned
-    @Column
+    @Id @GeneratedValue
     private Integer id;
 
-    @Column
-    private String userId;
-    @Column
+    @Column(name = "user_id")
+    private String memberId;
+    @Column(name = "user_password")
     private String password;
-    @Column
-    private String name;
-    @Column
+    @Column(name = "user_email")
     private String email;
+    @Column(name = "user_name")
+    private String name;
 
     @Builder
-    public User(Integer id, String userId, String password, String name, String email){
+    public Member(Integer id, String memberId, String password, String name, String email){
         this.id = id;
-        this.userId = userId;
+        this.memberId = memberId;
         this.password = password;
         this.name = name;
         this.email = email;
     }
-
 
 }

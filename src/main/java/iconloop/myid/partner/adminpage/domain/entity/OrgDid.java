@@ -4,6 +4,7 @@ import jdk.jfr.Unsigned;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -24,11 +25,11 @@ public class OrgDid implements Serializable {
     private String did;
     @NotNull
     @Column(length = 11)
-    private int nid;
+    private Integer nid;
     @Column(name = "did_private_key", length = 100)
     private String didPrivateKey;
     @Column(name = "did_status", length = 1)
-    private char didStatus;
+    private String didStatus;
     @Column(length = 250)
     private String description;
     @Column(name = "did_name", length = 60)
@@ -43,7 +44,7 @@ public class OrgDid implements Serializable {
     private LocalDateTime created;
 
     @Builder
-    public OrgDid(String did, int nid, String didPrivateKey, char didStatus, String description, String didName, Organization organization, LocalDateTime created){
+    public OrgDid(String did, Integer nid, String didPrivateKey, String didStatus, String description, String didName, Organization organization, LocalDateTime created){
         this.did = did;
         this.nid = nid;
         this.didPrivateKey = didPrivateKey;

@@ -1,12 +1,16 @@
 <html lagn="ko" xmlns:th="http://www.thymeleaf.org">
-</div>
-<th:block th:fragment="headFragment">
-    <div class="navbar navbar-dark bg-dark shadow-sm mb-3">
-        <div class="container d-flex justify-content-between">
-            <a href="/" class="navbar-brand d-flex align-items-center">
-                <strong>admin 페이지</strong>
-            </a>
+<th:block th:fragment="headerFragment">
+    <head>
+        <meta charset="UTF-8">
+        <title>organization List</title>
+        <link rel='stylesheet' href='/webjars/bootstrap/4.5.0/css/bootstrap.min.css'>
+        <div class="navbar navbar-dark bg-dark shadow-sm mb-3">
+            <div class="container d-flex justify-content-between">
+                <a href="/" class="navbar-brand d-flex align-items-center">
+                    <strong>admin 페이지</strong>
+                </a>
+            </div>
         </div>
-    </div>
+    </head>
 </th:block>
 </html>

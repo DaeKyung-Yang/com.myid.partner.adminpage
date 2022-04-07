@@ -13,9 +13,9 @@ import java.time.LocalDateTime;
 public class OrgDidRequestDto {
 
     private String did;
-    private int nid;
+    private Integer nid;
     private String didPrivateKey;
-    private char didStatus;
+    private String didStatus;
     private String description;
     private String didName;
     private LocalDateTime created;
@@ -36,7 +36,7 @@ public class OrgDidRequestDto {
     }
 
     @Builder
-    public OrgDidRequestDto(String did, int nid, String didPrivateKey, char didStatus, String description, String didName, Integer orgId, LocalDateTime created){
+    public OrgDidRequestDto(String did, Integer nid, String didPrivateKey, String didStatus, String description, String didName, Integer orgId, LocalDateTime created){
         this.did = did;
         this.nid = nid;
         this.didPrivateKey = didPrivateKey;

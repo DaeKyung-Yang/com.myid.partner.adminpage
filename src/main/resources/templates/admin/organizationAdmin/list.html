@@ -7,9 +7,8 @@
 </head>
 <body>
 <header th:insert="fragments/header.html"></header>
-<aside th:insert="fragments/sidebar.html"></aside>
+<th:block th:insert="fragments/sidebar.html"></th:block>
 <div class="container">
-
     <table class="table">
         <thead class="thead-light">
         <tr class="text-center">
@@ -31,7 +30,7 @@
                 <span th:text="${post.orgId}"></span>
             </th>
             <td>
-                    <span th:text="${post.orgName}"></span>
+                <span th:text="${post.orgName}"></span>
             </td>
             <td>
                 <span th:text="${post.orgNameEng}"></span>

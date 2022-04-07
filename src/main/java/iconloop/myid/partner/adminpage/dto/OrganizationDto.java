@@ -12,10 +12,9 @@ import java.time.LocalDateTime;
 public class OrganizationDto {
 
     private Integer orgId;
-
     private String orgName;
     private String orgNameEng;
-    private char orgStatus;
+    private String orgStatus;
     private char isIssuer;
     private char isVerifier;
 

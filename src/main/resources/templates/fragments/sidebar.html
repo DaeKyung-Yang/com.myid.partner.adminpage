@@ -1,4 +1,4 @@
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <th:block th:fragment="sidebarFragment">
     <ul class="bg-white">
         <li>
@@ -11,5 +11,9 @@
             <a th:href="@{/notices}">Notice</a>
         </li>
     </ul>
+    <div class="sb-sidenav-footer">
+        <div sec:authentication="name"></div>
+        <a sec:authorize="isAuthenticated()" th:href="@{/member/logout}">로그아웃</a>
+    </div>
 </th:block>
 </html>

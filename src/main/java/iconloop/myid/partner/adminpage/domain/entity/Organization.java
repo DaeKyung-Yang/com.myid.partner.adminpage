@@ -11,8 +11,6 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table
@@ -31,7 +29,7 @@ public class Organization {
     @Column(name = "org_name_eng", length = 50)
     private String orgNameEng;
     @Column(name = "org_status", length = 1)
-    private char orgStatus;
+    private String orgStatus;
     @Column(name = "is_issuer", length = 1)
     private char isIssuer;
     @Column(name = "is_verifier", length = 1)
@@ -47,7 +45,7 @@ public class Organization {
 //    private List<OrgDid> OrgDids = new ArrayList<>();
 
     @Builder
-    public Organization(Integer orgId, String orgName, String orgNameEng, char orgStatus, char isIssuer, char isVerifier, LocalDateTime created){
+    public Organization(Integer orgId, String orgName, String orgNameEng, String orgStatus, char isIssuer, char isVerifier, LocalDateTime created){
         this.orgId = orgId;
         this.orgName = orgName;
         this.orgNameEng = orgNameEng;

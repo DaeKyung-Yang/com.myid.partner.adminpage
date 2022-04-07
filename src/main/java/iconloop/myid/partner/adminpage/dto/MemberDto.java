@@ -1,24 +1,24 @@
 package iconloop.myid.partner.adminpage.dto;
 
-import iconloop.myid.partner.adminpage.domain.entity.User;
+import iconloop.myid.partner.adminpage.domain.entity.Member;
 import lombok.*;
 
 @Getter
 @Setter
 @ToString
 @NoArgsConstructor
-public class UserDto {
+public class MemberDto {
 
     private Integer id;
-    private String userId;
+    private String memberId;
     private String password;
     private String name;
     private String email;
 
-    public User toEntity(){
-        User build = User.builder()
+    public Member toEntity(){
+        Member build = Member.builder()
                 .id(id)
-                .userId(userId)
+                .memberId(memberId)
                 .password(password)
                 .name(name)
                 .email(email)
@@ -27,9 +27,9 @@ public class UserDto {
     }
 
     @Builder
-    public UserDto(Integer id, String userId, String password, String name, String email){
+    public MemberDto(Integer id, String memberId, String password, String name, String email){
         this.id = id;
-        this.userId = userId;
+        this.memberId = memberId;
         this.password = password;
         this.name = name;
         this.email = email;

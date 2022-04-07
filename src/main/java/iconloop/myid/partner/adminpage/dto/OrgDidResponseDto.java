@@ -16,9 +16,9 @@ import java.time.LocalDateTime;
 public class OrgDidResponseDto {
 
     private String did;
-    private int nid;
+    private Integer nid;
     private String didPrivateKey;
-    private char didStatus;
+    private String didStatus;
     private String description;
     private String didName;
     private LocalDateTime created;

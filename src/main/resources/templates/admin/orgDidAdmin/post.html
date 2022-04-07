@@ -10,6 +10,7 @@
 <div th:insert="fragments/sidebar.html"></div>
 <div class="container">
     <form action="/org-dids/post" method="post">
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
         <div class="form-group row">
             <label for="inputOrgId" class="col-sm-2 col-form-label"><strong>orgId</strong></label>
             <div class="col-sm-10">

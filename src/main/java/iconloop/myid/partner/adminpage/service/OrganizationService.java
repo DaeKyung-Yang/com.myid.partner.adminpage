@@ -29,8 +29,7 @@ public class OrganizationService {
         List<OrganizationDto> organizationDtoList = new ArrayList<>();
 
         for(Organization organization : organizationsList){
-            OrganizationDto organizationDto = new OrganizationDto(organization);
-            organizationDtoList.add(organizationDto);
+            organizationDtoList.add(new OrganizationDto(organization));
         }
         return organizationDtoList;
     }
