@@ -36,9 +36,11 @@
                 <a th:href="@{/notices/post/edit/{id}(id=${post.id})}" role="button">수정</a>
             </td>
             <td>
-                <a th:href="@{/notices/post/delete(id=${post.id})}" role="button"
-                   onclick="if(!(confirm('삭제하시겠습니까?'))) return false">삭제
-                </a>
+                <form th:action="@{'/notices/delete'}" method="post"
+                      onclick="if(!(confirm('삭제하시겠습니까?'))) return false">
+                    <input type="hidden" name="id" th:value="${post.id}"/>
+                    <button>삭제</button>
+                </form>
             </td>
         </tr>
     </table>

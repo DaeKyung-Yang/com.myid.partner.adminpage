@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class OrgDidService {
@@ -45,5 +46,4 @@ public class OrgDidService {
     public void deletePost(String did){
         orgDidRepository.deleteById(did);
     }
-
 }

@@ -36,7 +36,9 @@
                 <span th:text="${post.nid}"></span>
             </td>
             <td>
-                <span th:text="${post.did}"></span>
+                <a th:href="@{'/org-dids/' + ${post.did}}">
+                    <span th:text="${#strings.abbreviate(post.did, 5)}"></span>
+                </a>
             </td>
             <td>
                 <span th:text="${post.didStatus}"></span>
@@ -45,7 +47,7 @@
                 <span th:text="${#temporals.format(post.created, 'yyyy-MM-dd HH:mm')}"></span>
             </td>
             <td>
-                <span th:text="${post.description}"></span>
+                <span th:text="${#strings.abbreviate(post.description,10)}"></span>
             </td>
             <td>
                 <span th:text="${post.didName}"></span>
@@ -54,9 +56,11 @@
                 <a th:href="@{/org-dids/post/edit/{did}(did=${post.did})}" role="button">수정</a>
             </td>
             <td>
-                <a th:href="@{/org-dids/post/delete(did=${post.did})}" role="button"
-                   onclick="if(!(confirm('삭제하시겠습니까?'))) return false">삭제
-                </a>
+                <form th:action="@{'/org-dids/delete'}" method="post"
+                   onclick="if(!(confirm('삭제하시겠습니까?'))) return false">
+                    <input type="hidden" name="did" th:value="${post.did}"/>
+                    <button>삭제</button>
+                </form>
             </td>
         </tr>
         </tbody>

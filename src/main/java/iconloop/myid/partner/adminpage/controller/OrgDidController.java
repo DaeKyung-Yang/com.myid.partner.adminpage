@@ -43,14 +43,22 @@ public class OrgDidController {
         return "admin/orgDidAdmin/edit.html";
     }
 
+    @GetMapping("/{did}")
+    public String detail(@PathVariable("did") String did, Model model){
+        OrgDidResponseDto orgDidResponseDto = orgDidService.getPost(did);
+        model.addAttribute("post", orgDidResponseDto);
+
+        return "admin/orgDidAdmin/detail.html";
+    }
+
     @PatchMapping("/post/edit/{did}")
     public String update(OrgDidRequestDto orgDidRequestDto){
         orgDidService.savePost(orgDidRequestDto);
         return "redirect:/org-dids";
     }
 
-    @GetMapping("/post/delete")
-    public String delete(@RequestParam("did") String did){
+    @PostMapping("/delete")
+    public String delete(String did){
         orgDidService.deletePost(did);
         return "redirect:/org-dids";
     }

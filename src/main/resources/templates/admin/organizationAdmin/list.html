@@ -54,9 +54,11 @@
                 <a th:href="@{/organizations/post/edit/{orgId}(orgId=${post.orgId})}" role="button">수정</a>
             </td>
             <td>
-                <a th:href="@{/organizations/post/delete(orgId=${post.orgId})}" role="button"
-                   onclick="if(!(confirm('삭제하시겠습니까?'))) return false">삭제
-                </a>
+                <form th:action="@{'/organizations/delete'}" method="post"
+                      onclick="if(!(confirm('삭제하시겠습니까?'))) return false">
+                    <input type="hidden" name="orgId" th:value="${post.orgId}"/>
+                    <button>삭제</button>
+                </form>
             </td>
         </tr>
         </tbody>

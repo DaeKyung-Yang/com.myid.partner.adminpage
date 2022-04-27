@@ -48,8 +48,8 @@ public class OrganizationController {
         return "redirect:/organizations";
     }
 
-    @GetMapping("/post/delete")
-    public String delete(@RequestParam("orgId") Integer orgId){
+    @PostMapping("/delete")
+    public String delete(Integer orgId){
         organizationService.deletePost(orgId);
         return "redirect:/organizations";
     }

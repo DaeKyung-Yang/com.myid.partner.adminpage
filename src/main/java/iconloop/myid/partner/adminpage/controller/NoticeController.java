@@ -59,8 +59,8 @@ public class NoticeController {
         return "redirect:/notices";
     }
 
-    @GetMapping("/post/delete")
-    public String delete(@RequestParam("id") Integer id){
+    @PostMapping("/delete")
+    public String delete(Integer id){
         noticeService.deleteNotice(id);
         return "redirect:/notices";
     }

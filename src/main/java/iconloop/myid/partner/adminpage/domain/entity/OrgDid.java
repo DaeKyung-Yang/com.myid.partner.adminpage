@@ -14,7 +14,7 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "org_did")
+@Table(name = "t_org_did")
 @Getter
 @NoArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
